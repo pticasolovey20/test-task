@@ -1,0 +1,145 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	outline: none;
+	border: none;
+	color: #000;
+}
+
+.wrapper {
+	height: 100vh;
+	padding: 10px;
+	background-color: #e6ecfe;
+}
+
+.home-page {
+	display: flex;
+	gap: 10px;
+}
+
+.product-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	padding: 15px;
+	border-radius: 20px;
+	cursor: pointer;
+	background-color: #efedff;
+	box-shadow: 3px 3px 10px rgb(116, 116, 116);
+
+	img {
+		width: 250px;
+		height: 250px;
+		object-fit: cover;
+		border-radius: 20px;
+		box-shadow: 3px 3px 10px rgb(116, 116, 116);
+	}
+
+	p {
+		font-size: 18px;
+		font-weight: 600;
+	}
+}
+
+.detail-product {
+	display: flex;
+	width: 760px;
+	padding: 20px;
+	border-radius: 20px;
+	background-color: #fff;
+
+	.left {
+		display: flex;
+		gap: 10px;
+
+		img {
+			border: 2px solid rgb(203, 203, 203);
+			border-radius: 15px;
+			object-fit: cover;
+			cursor: pointer;
+			box-shadow: 5px 5px 10px rgb(116, 116, 116);
+		}
+
+		.small-images {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+
+			img {
+				width: 100px;
+				height: 110px;
+			}
+		}
+
+		.big-image {
+			img {
+				width: 350px;
+				height: 350px;
+			}
+		}
+	}
+
+	.right {
+		display: flex;
+		flex-direction: column;
+		padding: 10px 0 10px 20px;
+		gap: 20px;
+
+		.description {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+
+			p {
+				font-size: 24px;
+				font-weight: 600;
+			}
+
+			span {
+				font-size: 18px;
+			}
+		}
+
+		button {
+			padding: 10px;
+			border: 1px solid rgba(116, 116, 116, 0.5);
+			border-radius: 5px;
+			background: none;
+			cursor: pointer;
+
+			&:hover {
+				border: 1px solid black;
+			}
+		}
+
+		.colors {
+			display: flex;
+			gap: 15px;
+		}
+
+		.size-wrapper {
+			display: flex;
+			gap: 5px;
+
+			.size {
+				display: flex;
+				justify-content: center;
+				width: 40px;
+				padding: 5px;
+				border: 1px solid rgba(116, 116, 116, 0.5);
+
+				&:hover:not(:disabled) {
+					border: 1px solid black;
+				}
+
+				&:disabled {
+					opacity: 0.5;
+				}
+			}
+		}
+	}
+}
