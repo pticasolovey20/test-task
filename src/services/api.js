@@ -9,7 +9,7 @@ const sizes = [
 const products = [
 	{
 		id: 1,
-		name: "Футболка",
+		name: "T-shirt",
 		colors: [
 			{
 				id: 1,
@@ -40,7 +40,7 @@ const products = [
 
 	{
 		id: 2,
-		name: "Майка",
+		name: "Sweatshirt",
 		colors: [
 			{
 				id: 1,

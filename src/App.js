@@ -4,7 +4,7 @@ import { DetailPage } from "./pages/DetailPage";
 
 export default function App() {
 	return (
-		<div className="wrapper">
+		<div className="app-wrapper">
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/detail/:id" element={<DetailPage />} />

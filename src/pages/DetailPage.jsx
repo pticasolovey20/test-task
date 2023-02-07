@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ColorItem } from "../components/ColorItem";
-import { SizeItem } from "../components/SizeItem";
+import { ColorsComponent } from "../components/ColorsComponent";
+import { SizeComponent } from "../components/SizeComponent";
 import { getProduct, getSizes } from "../services/api";
 
 export const DetailPage = () => {
-	const [product, setProduct] = useState({});
+	const [product, setProduct] = useState([]);
 	const [sizes, setSizes] = useState(null);
 	const [currentColor, setCurrentColor] = useState(1);
 	const [currentImage, setCurrentImage] = useState(0);
@@ -21,7 +21,7 @@ export const DetailPage = () => {
 		<>
 			{Object.keys(product).length > 0 && (
 				<div className="detail-product">
-					<div className="left">
+					<div className="left-side">
 						<div className="small-images">
 							{product.colors[currentColor - 1].images.map((image, index) => (
 								<img
@@ -39,37 +39,17 @@ export const DetailPage = () => {
 							/>
 						</div>
 					</div>
-					<div className="right">
+					<div className="right-side">
 						<div className="description">
-							<h1>{product.name}</h1>
-							<span>
-								{`Описание: ${product.colors[currentColor - 1].description.slice(
-									12
-								)}`}
-							</span>
-							<p>Цена: {product.colors[currentColor - 1].price} $</p>
+							<h1>{product.name.toUpperCase()}</h1>
+							<p>PRICE: {product.colors[currentColor - 1].price} UAH</p>
 						</div>
-						<div className="colors">
-							{product.colors.map((color) => (
-								<ColorItem
-									key={color.id}
-									color={color}
-									setCurrentColor={setCurrentColor}
-								/>
-							))}
-						</div>
-						<div className="size-wrapper">
-							{sizes.length > 0 &&
-								sizes.map((size) => (
-									<SizeItem
-										key={size.id}
-										size={size}
-										isAvaliable={product.colors[currentColor - 1].sizes.find(
-											(availible) => availible === size.id
-										)}
-									/>
-								))}
-						</div>
+						<ColorsComponent product={product} setCurrentColor={setCurrentColor} />
+						<SizeComponent
+							product={product}
+							currentColor={currentColor}
+							sizes={sizes}
+						/>
 					</div>
 				</div>
 			)}
